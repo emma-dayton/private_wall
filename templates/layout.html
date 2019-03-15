@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>{{ session['title']}}</title>
+		<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-fluid"
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin: 10px 25px;">
+  		<a class="btn btn-outline-success my-2 my-sm-0" href="/">Home Please</a>
+		</nav>
+    <div class="container-fluid" style="margin: 10px 0px 10px -15px">
+      <div class="jumbotron" style="margin-right: 25px; background-color: #616872; color: #aaacaf">
+        <img src="{{ url_for('static', filename='images/dojo.png') }}" alt="Coding Dojo logo and text">
+        <h1>Dojo Community</h1>
+      </div>
+        {% block content %}
+        {% endblock %}
+  </body>
+</html>
