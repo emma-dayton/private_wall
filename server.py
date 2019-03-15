@@ -9,6 +9,7 @@ email_regex = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 @app.route('/')
 def login_register():
+    session['title'] = 'Login or Register'
     return render_template('index.html')
 
 
