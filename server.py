@@ -12,6 +12,14 @@ def login_register():
     session['title'] = 'Login or Register'
     return render_template('index.html')
 
+@app.route('/register', methods=['POST'])
+def registration():
+    return redirect('/wall')
+
+@app.route('/wall')
+def wall():
+    return render_template('wall.html')
+
 
 
 

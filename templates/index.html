@@ -1,5 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
+<div class="row">
+  <div class="col" style="margin-right: 50px;">
+    <h4>Registration</h4>
+    <form class="form-group" action="{{ url_for('registration') }}" method="post">
+      <label for="fn" style="margin-top: 10px; margin-bottom: 5px;">First Name</label>
+        <input type='text' calss='form=control' name='fn' placeholder="First Name">
+      <label for="ln" style="margin-top: 10px; margin-bottom: 5px;">Last Name</label>
+        <input type='text' class="form-control" name='ln' placeholder="Last Name">
+      <label for="email" style="margin-top: 10px; margin-bottom: 5px;">Email</label>
+        <input type='text' class="form-control" name='email' placeholder='email'>
+      <label for="pw" style="margin-top: 10px; margin-bottom: 5px;">Password</label>
+        <input type='password' class="form-control" name='pw' placeholder="Password">
+      <label for="pwconfirm" style="margin-top: 10px; margin-bottom: 5px;">Confirm Password</label>
+      <input type='password' class="form-control" name='pwconfirm' placeholder="Confirm Password">
 
 
 
