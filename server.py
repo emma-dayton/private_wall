@@ -16,6 +16,10 @@ def login_register():
 def registration():
     return redirect('/wall')
 
+@app.route('/login', methods=['POST'])
+def login():
+    return redirect('/wall')
+    
 @app.route('/wall')
 def wall():
     return render_template('wall.html')
