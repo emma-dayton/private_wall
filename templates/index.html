@@ -4,15 +4,35 @@
   <div class="col" style="margin-right: 50px;">
     <h4>Registration</h4>
     <form class="form-group" action="{{ url_for('registration') }}" method="post">
-      <label for="fn" style="margin-top: 10px; margin-bottom: 5px;">First Name</label>
+      <label for="fn" style="margin-top: 10px; margin-bottom: 5px;">First Name
+        {% with messages = get_flashed_messages(category_filter=['fn']) %}
+          <span style='color: red;'>{{ messages[0] }}</span>
+        {% endwith %}
+      </label>
         <input type='text' class='form-control' name='fn' placeholder="First Name">
-      <label for="ln" style="margin-top: 10px; margin-bottom: 5px;">Last Name</label>
+      <label for="ln" style="margin-top: 10px; margin-bottom: 5px;">Last Name
+        {% with messages = get_flashed_messages(category_filter=['ln']) %}
+          <span style='color: red;'>{{ messages[0] }}</span>
+        {% endwith %}
+      </label>
         <input type='text' class="form-control" name='ln' placeholder="Last Name">
-      <label for="email" style="margin-top: 10px; margin-bottom: 5px;">Email</label>
+      <label for="email" style="margin-top: 10px; margin-bottom: 5px;">Email
+        {% with messages = get_flashed_messages(category_filter=['email']) %}
+          <span style='color: red;'>{{ messages[0] }}</span>
+        {% endwith %}
+      </label>
         <input type='text' class="form-control" name='email' placeholder='email'>
-      <label for="pw" style="margin-top: 10px; margin-bottom: 5px;">Password</label>
+      <label for="pw" style="margin-top: 10px; margin-bottom: 5px;">Password
+        {% with messages = get_flashed_messages(category_filter=['pw']) %}
+          <span style='color: red;'>{{ messages[0] }}</span>
+        {% endwith %}
+      </label>
         <input type='password' class="form-control" name='pw' placeholder="Password">
-      <label for="pwconfirm" style="margin-top: 10px; margin-bottom: 5px;">Confirm Password</label>
+      <label for="pwconfirm" style="margin-top: 10px; margin-bottom: 5px;">Confirm Password
+        {% with messages = get_flashed_messages(category_filter=['pwconfirm']) %}
+          <span style='color: red;'>{{ messages[0] }}</span>
+        {% endwith %}
+      </label>
         <input type='password' class="form-control" name='pwconfirm' placeholder="Confirm Password">
       <button type="submit" class="btn btn-info" style="margin-top: 10px;">Register</button>
     </form>
