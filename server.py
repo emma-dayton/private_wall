@@ -6,7 +6,7 @@ app = Flask(__name__)
 bcrypt = Bcrypt(app)
 app.secret_key = '8babef50fb315b06e2b627dca25c28b3'
 email_regex = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
-pw_regex = re.compile(r'[A-Za-z0-9@#$%^&+=]{8,}')
+pw_regex = re.compile(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$")
 
 @app.route('/')
 def login_register():
