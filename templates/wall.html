@@ -16,7 +16,7 @@
       {% endfor %}
       </ul>
     </div>
-    <div class="card">
+    <div class="card" style="margin-top: 10px;">
       <div class="card-header" style="padding-bottom: 5px;"><h5>Messages Sent</h5></div>
       <ul class="list-group list-group-flush">
     {% for message in sent_mess %}
@@ -32,17 +32,17 @@
   </div>
 <div class="row">
   <div class="col" style="margin-right: 50px;">
-    <h4>Send Messages</h4>
+    <h3>Send Messages</h3>
     <div class="form-group">
       <form action="{{ url_for('send') }}" method="post">
-      <label for="select_friend">Select a user to Post a message to</label>
-      <select class="form-control" id="select_friend" name="select_friend">
+      <label for="select_friend" style="margin-bottom: 5px;">Select a user to post a message to</label>
+      <select class="form-control" id="select_friend" name="select_friend" style="margin-bottom: 5px;">  <!-- probably not the best idea to have user id in html value for select -->
         {% for user in users %}
-          <option>{{ user['first_name'] }} {{ user['last_name'] }}</option>
+          <option value="{{ user['id']}}">{{ user['first_name'] }} {{ user['last_name'] }}</option>
         {% endfor %}
       </select>
-      <textarea class="form-control" name="message" rows="8" cols="80"></textarea>
-      <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Send</button>
+      <textarea class="form-control" name="message" rows="8" cols="80" style="margin-bottom: 5px;"></textarea>
+      <button type="submit" class="btn btn-outline-success my-2 my-sm-0" style="margin-bottom: 5px;">Send</button>
       </form>
     </div>
   </div>
