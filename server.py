@@ -82,6 +82,8 @@ def login():
 
 @app.route('/wall')
 def wall():
+    if 'user' not in session: # if someone tries to go directly to wall sends to registration/login page
+        return redirect('/')
     if 'fn' in session: # clears first name from session from registration
         session.pop('fn')
     if 'ln' in session: # clears last name from session from registration
