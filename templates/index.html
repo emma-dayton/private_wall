@@ -9,19 +9,22 @@
           <span style='color: red;'>{{ messages[0] }}</span>
         {% endwith %}
       </label>
-        <input type='text' class='form-control' name='fn' placeholder="First Name">
+        <input type='text' class='form-control' name='fn' placeholder="First Name"
+          value="{{ session['fn'] }}">
       <label for="ln" style="margin-top: 10px; margin-bottom: 5px;">Last Name
         {% with messages = get_flashed_messages(category_filter=['ln']) %}
           <span style='color: red;'>{{ messages[0] }}</span>
         {% endwith %}
       </label>
-        <input type='text' class="form-control" name='ln' placeholder="Last Name">
+        <input type='text' class="form-control" name='ln' placeholder="Last Name"
+          value="{{ session['ln'] }}">
       <label for="email" style="margin-top: 10px; margin-bottom: 5px;">Email
         {% with messages = get_flashed_messages(category_filter=['email']) %}
           <span style='color: red;'>{{ messages[0] }}</span>
         {% endwith %}
       </label>
-        <input type='text' class="form-control" name='email' placeholder='email'>
+        <input type='text' class="form-control" name='email' placeholder='email'
+          value="{{ session['email'] }}">
       <label for="pw" style="margin-top: 10px; margin-bottom: 5px;">Password
         {% with messages = get_flashed_messages(category_filter=['pw']) %}
           <span style='color: red;'>{{ messages[0] }}</span>
@@ -40,8 +43,9 @@
   <div class="col"  style="margin-right: 25px;">
     <h4>Login</h4>
     <form class="form-group" action="{{ url_for('login') }}" method="post">
-      <label for="email" style="margin-top: 10px;">Email</label>
-        <input type='text' class="form-control" name='email' placeholder="Email">
+      <label for="email2" style="margin-top: 10px;">Email</label>
+        <input type='text' class="form-control" name='email2' placeholder="Email"
+          value="{{ session['email2'] }}">
       <label for="pw" style="margin-top: 10px;">Password</label>
         <input type='password' class="form-control" name='pw' placeholder="Password">
       <button type="submit" class="btn btn-info" style="margin-top: 10px;">Log In</button>

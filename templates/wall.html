@@ -2,5 +2,49 @@
 {% block content %}
 <div class="row">
   <div class="col" style="margin-right: 50px;">
-    <h4>Messages</h4>
+    <h3>Messages</h3>
+    <div class="card">
+      <div class="card-header"style="padding-bottom: 5px;"><h5>Messages Received</h5></div>
+      <ul class="list-group list-group-flush">
+      {% for message in rec_mess %}
+        {% for user in users %}
+          {% if user['id'] == message['send_user_id'] %}
+            <li class="list-group-item"><span style="color: grey">From: {{ user['first_name'] }} {{ user['last_name'] }} </span><br>
+          {% endif %}
+        {% endfor %}
+      {{message['content']}}</li>
+      {% endfor %}
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-header" style="padding-bottom: 5px;"><h5>Messages Sent</h5></div>
+      <ul class="list-group list-group-flush">
+    {% for message in sent_mess %}
+    {% for user in users %}
+      {% if user['id'] == message['receive_user_id'] %}
+        <li class="list-group-item"><span style="color: grey">Sent to: {{ user['first_name'] }} {{ user['last_name'] }} </span><br>
+      {% endif %}
+    {% endfor %}
+    {{message['content']}}</li>
+    {% endfor %}
+    </ul>
+    </div>
+  </div>
+<div class="row">
+  <div class="col" style="margin-right: 50px;">
+    <h4>Send Messages</h4>
+    <div class="form-group">
+      <form action="{{ url_for('send') }}" method="post">
+      <label for="select_friend">Select a user to Post a message to</label>
+      <select class="form-control" id="select_friend" name="select_friend">
+        {% for user in users %}
+          <option>{{ user['first_name'] }} {{ user['last_name'] }}</option>
+        {% endfor %}
+      </select>
+      <textarea class="form-control" name="message" rows="8" cols="80"></textarea>
+      <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}
